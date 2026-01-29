@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Car, Hammer, Droplets, FlaskConical, Tractor, LayoutGrid } from 'lucide-react';
 

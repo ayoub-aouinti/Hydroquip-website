@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Shield, Truck, Users } from 'lucide-react';
 
