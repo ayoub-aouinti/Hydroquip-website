@@ -1,38 +1,43 @@
 import { motion } from 'framer-motion';
-import { Car, Hammer, Droplets, FlaskConical, Tractor, LayoutGrid } from 'lucide-react';
 
 const Services = () => {
     
   const services = [
     {
-      icon: <Car size={40} />,
+      image: "/images/automobile.png",
       title: "Automobile",
-      description: "Tuyauterie de direction assistées, tuyauteries en polyamide pour le transport de carburants."
+      description: "Tuyauterie de direction assistées, tuyauteries en polyamide pour le transport de carburants.",
+      details: "Solutions hydrauliques complètes pour l'industrie automobile incluant flexibles haute pression et raccords spécialisés."
     },
     {
-      icon: <Hammer size={40} />,
+      image: "/images/construction.png",
       title: "Matériels & Travaux Publics",
-      description: "Pièces et flexibles pour engins de chantier, travaux publics et carrières."
+      description: "Pièces et flexibles pour engins de chantier, travaux publics et carrières.",
+      details: "Équipements robustes conçus pour résister aux conditions extrêmes des chantiers et carrières."
     },
     {
-      icon: <Droplets size={40} />,
+      image: "/images/drilling.png",
       title: "Sondages Hydrauliques",
-      description: "Equipements haute pression pour les sondages et forages hydrauliques."
+      description: "Equipements haute pression pour les sondages et forages hydrauliques.",
+      details: "Systèmes haute performance pour applications de forage et sondage nécessitant une fiabilité maximale."
     },
     {
-      icon: <FlaskConical size={40} />,
+      image: "/images/industrial.png",
       title: "Industrie Pétrolière & Pharma",
-      description: "Solutions pour industries pétrolières, agroalimentaires (lait, huile d'olive) et pharmaceutiques."
+      description: "Solutions pour industries pétrolières, agroalimentaires (lait, huile d'olive) et pharmaceutiques.",
+      details: "Composants en acier inoxydable sanitaire conformes aux normes les plus strictes de l'industrie."
     },
     {
-       icon: <Tractor size={40} />,
+       image: "/images/agricultural.png",
        title: "Agricole", 
-       description: "Flexibles et raccords pour machines agricoles et systèmes d'irrigation."
+       description: "Flexibles et raccords pour machines agricoles et systèmes d'irrigation.",
+       details: "Équipements hydrauliques adaptés aux tracteurs, moissonneuses et systèmes d'irrigation modernes."
     },
     {
-       icon: <LayoutGrid size={40} />,
+       image: "/images/custom.png",
        title: "Fabrication sur Mesure",
-       description: "Fabrication de toute pièce mécanique selon vos modèles et spécifications."
+       description: "Fabrication de toute pièce mécanique selon vos modèles et spécifications.",
+       details: "Service de fabrication personnalisée avec usinage de précision pour répondre à vos besoins spécifiques."
     }
   ];
 
@@ -59,15 +64,30 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-[#121212] border border-white/5 p-8 rounded-xl hover:border-primary/50 transition-all group"
+              className="bg-[#121212] border border-white/5 rounded-xl overflow-hidden hover:border-primary/50 transition-all group"
             >
-              <div className="text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
-                {service.icon}
+              {/* Image Header */}
+              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-60"></div>
               </div>
-              <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-              <p className="text-gray-400 leading-relaxed">
-                {service.description}
-              </p>
+              
+              {/* Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-gray-400 leading-relaxed mb-3">
+                  {service.description}
+                </p>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {service.details}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
