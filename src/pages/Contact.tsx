@@ -1,8 +1,45 @@
+import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
-    
+  const form = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(false);
+    setError(false);
+
+    if (!form.current) return;
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form.current,
+        {
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        }
+      )
+      .then(
+        () => {
+          setLoading(false);
+          setSuccess(true);
+          form.current?.reset();
+        },
+        (error) => {
+          setLoading(false);
+          setError(true);
+          console.error('FAILED...', error.text);
+        },
+      );
+  };
+
   return (
     <div className="pt-24 pb-24">
       <div className="container mx-auto px-4">
@@ -87,28 +124,65 @@ const Contact = () => {
                 className="bg-[#121212] p-8 rounded-xl border border-white/5"
             >
                 <h3 className="text-2xl font-bold mb-6">Envoyer un message</h3>
-                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                {success && (
+                    <div className="bg-green-500/10 border border-green-500/20 text-green-500 px-4 py-3 rounded-lg mb-6">
+                        Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.
+                    </div>
+                )}
+                {error && (
+                    <div className="bg-red-500/10 border border-red-500/20 text-red-500 px-4 py-3 rounded-lg mb-6">
+                        Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer plus tard.
+                    </div>
+                )}
+                <form ref={form} className="space-y-6" onSubmit={sendEmail}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                             <label className="text-sm font-medium text-gray-400">Nom complet</label>
-                            <input type="text" className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" placeholder="Votre nom" />
+                            <input 
+                                type="text" 
+                                name="name"
+                                required
+                                className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" 
+                                placeholder="Votre nom" 
+                            />
                         </div>
                         <div className="space-y-2">
                             <label className="text-sm font-medium text-gray-400">Email</label>
-                            <input type="email" className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" placeholder="votre@email.com" />
+                            <input 
+                                type="email" 
+                                name="email"
+                                required
+                                className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" 
+                                placeholder="votre@email.com" 
+                            />
                         </div>
                     </div>
                      <div className="space-y-2">
                         <label className="text-sm font-medium text-gray-400">Sujet</label>
-                        <input type="text" className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" placeholder="Demande de devis..." />
+                        <input 
+                            type="text" 
+                            name="title"
+                            required
+                            className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" 
+                            placeholder="Demande de devis..." 
+                        />
                     </div>
                     <div className="space-y-2">
                         <label className="text-sm font-medium text-gray-400">Message</label>
-                        <textarea className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-4 py-3 text-white h-32 focus:outline-none focus:border-primary transition-colors resize-none" placeholder="Votre message..." />
+                        <textarea 
+                            name="message"
+                            required
+                            className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-4 py-3 text-white h-32 focus:outline-none focus:border-primary transition-colors resize-none" 
+                            placeholder="Votre message..." 
+                        />
                     </div>
-                    <button className="w-full btn btn-primary gap-2">
-                        <span>Envoyer le message</span>
-                        <Send size={18} />
+                    <button 
+                        type="submit" 
+                        disabled={loading}
+                        className="w-full btn btn-primary gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        {loading ? 'Envoi en cours...' : 'Envoyer le message'}
+                        {!loading && <Send size={18} />}
                     </button>
                 </form>
             </motion.div>
