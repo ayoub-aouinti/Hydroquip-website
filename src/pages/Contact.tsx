@@ -187,6 +187,24 @@ const Contact = () => {
                 </form>
             </motion.div>
         </div>
+
+        {/* Map */}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="mt-16 bg-[#121212] p-2 rounded-xl border border-white/5"
+        >
+            <iframe 
+                width="100%" 
+                height="450" 
+                style={{ border: 0, borderRadius: "0.5rem" }}
+                loading="lazy" 
+                allowFullScreen 
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://maps.google.com/maps?q=35.683079,10.079087&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            ></iframe>
+        </motion.div>
       </div>
     </div>
   );
