@@ -24,11 +24,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="bg-white p-1 rounded-sm flex">
-                <span className="text-secondary font-bold text-xl px-2">HYDRO</span>
-                <span className="text-primary font-bold text-xl bg-primary text-white px-2">QUIP</span>
-            </div>
+          <Link to="/" className="flex items-center">
+            <img src="/logo.png" alt="Hydroquip Logo" className="h-12 w-auto object-contain" />
           </Link>
 
           {/* Desktop Menu */}

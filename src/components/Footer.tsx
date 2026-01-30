@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">HYDROQUIP</h3>
+            <img src="/logo.png" alt="Hydroquip Logo" className="h-10 w-auto object-contain mb-4" />
             <p className="text-gray-400 text-sm leading-relaxed">
               {t('footer.about.description')}
             </p>
