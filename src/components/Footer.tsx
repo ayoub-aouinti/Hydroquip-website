@@ -5,6 +5,21 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   const { t } = useTranslation();
 
+  const isOpen = () => {
+    const now = new Date();
+    const day = now.getDay();
+    const hour = now.getHours();
+    
+    if (day >= 1 && day <= 5) {
+      return hour >= 8 && hour < 17;
+    } else if (day === 6) {
+      return hour >= 8 && hour < 13;
+    }
+    return false;
+  };
+
+  const businessOpen = isOpen();
+
   return (
     <footer className="bg-[#050505] text-white pt-16 pb-8 border-t border-white/10">
       <div className="container mx-auto px-4">
@@ -59,7 +74,9 @@ const Footer = () => {
                 <Clock size={16} />
                 <span>{t('contact.info.hours.saturday')}: {t('contact.info.hours.saturdayTime')}</span>
               </li>
-              <li className="text-primary">{t('contact.info.hours.sundayTime')}</li>
+              <li className={`${businessOpen ? 'text-green-500' : 'text-red-500'} font-bold mt-2 shadow-sm`}>
+                {businessOpen ? t('contact.info.hours.open') : t('contact.info.hours.closed')} ({t('whatsapp.assistance')})
+              </li>
             </ul>
           </div>
         </div>

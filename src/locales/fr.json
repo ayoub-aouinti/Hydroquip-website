@@ -103,7 +103,9 @@
         "saturday": "Samedi",
         "saturdayTime": "8h00 - 13h00",
         "sunday": "Dimanche",
-        "sundayTime": "Fermé (Assistance 7/7)"
+        "sundayTime": "Fermé (Assistance 7/7)",
+        "open": "Ouvert",
+        "closed": "Fermé"
       }
     },
     "form": {

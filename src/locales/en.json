@@ -103,7 +103,9 @@
         "saturday": "Saturday",
         "saturdayTime": "8:00 AM - 1:00 PM",
         "sunday": "Sunday",
-        "sundayTime": "Closed (24/7 Support)"
+        "sundayTime": "Closed (24/7 Support)",
+        "open": "Open",
+        "closed": "Closed"
       }
     },
     "form": {
