@@ -13,13 +13,13 @@ const WhatsAppWidget = () => {
   const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '21677302424';
   
   const quickMessages = [
-    { id: 1, text: t('whatsapp.quote'), icon: '💰' },
-    { id: 2, text: t('whatsapp.support'), icon: '🔧' },
-    { id: 3, text: t('whatsapp.info'), icon: 'ℹ️' }
+    { id: 1, text: t('whatsapp.quote'), message: t('whatsapp.userQuote'), icon: '💰' },
+    { id: 2, text: t('whatsapp.support'), message: t('whatsapp.userSupport'), icon: '🔧' },
+    { id: 3, text: t('whatsapp.info'), message: t('whatsapp.userInfo'), icon: 'ℹ️' }
   ];
 
   const openWhatsApp = (message?: string) => {
-    const defaultMessage = message || t('whatsapp.help');
+    const defaultMessage = message || t('whatsapp.userDefault');
     const encodedMessage = encodeURIComponent(defaultMessage);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
@@ -98,7 +98,7 @@ const WhatsAppWidget = () => {
                     initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 + index * 0.1 }}
-                    onClick={() => openWhatsApp(msg.text)}
+                    onClick={() => openWhatsApp(msg.message)}
                     className="w-full bg-[#121212] hover:bg-[#1a1a1a] border border-white/10 hover:border-primary/50 p-3 rounded-lg text-left transition-all duration-200 group rtl:text-right"
                   >
                     <div className="flex items-center gap-3 rtl:flex-row-reverse">

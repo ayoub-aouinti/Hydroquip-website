@@ -146,6 +146,10 @@
     "info": "Informations générales",
     "startChat": "Démarrer la conversation",
     "hours": "Disponible: Lun-Ven 8h-17h, Sam 8h-13h",
-    "assistance": "Assistance 7/7"
+    "assistance": "Assistance 7/7",
+    "userDefault": "Bonjour, je voudrais discuter avec vous.",
+    "userQuote": "Bonjour, je souhaite recevoir un devis.",
+    "userSupport": "Bonjour, j'ai besoin d'une assistance technique.",
+    "userInfo": "Bonjour, je souhaiterais avoir plus d'informations."
   }
 }

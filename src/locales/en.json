@@ -146,6 +146,10 @@
     "info": "General information",
     "startChat": "Start Conversation",
     "hours": "Available: Mon-Fri 8AM-5PM, Sat 8AM-1PM",
-    "assistance": "24/7 Support"
+    "assistance": "24/7 Support",
+    "userDefault": "Hello, I would like to chat with you.",
+    "userQuote": "Hello, I would like to request a quote.",
+    "userSupport": "Hello, I need technical support.",
+    "userInfo": "Hello, I would like more information."
   }
 }
