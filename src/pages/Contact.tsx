@@ -2,8 +2,10 @@ import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { useTranslation } from 'react-i18next';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const form = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -48,10 +50,10 @@ const Contact = () => {
            animate={{ opacity: 1, y: 0 }}
            className="text-center mb-16"
         >
-          <span className="text-primary font-bold uppercase tracking-wider text-sm">Contactez-nous</span>
-          <h1 className="text-4xl md:text-5xl font-bold mt-2 mb-6">Restons en Contact</h1>
+          <span className="text-primary font-bold uppercase tracking-wider text-sm">{t('contact.badge')}</span>
+          <h1 className="text-4xl md:text-5xl font-bold mt-2 mb-6">{t('contact.title')}</h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Notre équipe est à votre disposition pour répondre à toutes vos questions et demandes de devis.
+            {t('contact.description')}
           </p>
         </motion.div>
 
@@ -64,15 +66,15 @@ const Contact = () => {
                className="space-y-8"
             >
                 <div className="bg-[#121212] p-8 rounded-xl border border-white/5">
-                    <h3 className="text-2xl font-bold mb-6">Coordonnées</h3>
+                    <h3 className="text-2xl font-bold mb-6">{t('contact.info.title')}</h3>
                     <div className="space-y-6">
                         <div className="flex items-start gap-4">
                             <div className="bg-primary/10 p-3 rounded-lg text-primary">
                                 <MapPin size={24} />
                             </div>
                             <div>
-                                <h4 className="font-bold text-white mb-1">Notre Adresse</h4>
-                                <p className="text-gray-400">45, rue Russie Sahabi 2<br/>Kairouan, Tunisie</p>
+                                <h4 className="font-bold text-white mb-1">{t('contact.info.address.title')}</h4>
+                                <p className="text-gray-400">{t('contact.info.address.line1')}<br/>{t('contact.info.address.line2')}</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-4">
@@ -80,9 +82,9 @@ const Contact = () => {
                                 <Phone size={24} />
                             </div>
                             <div>
-                                <h4 className="font-bold text-white mb-1">Téléphone & Fax</h4>
-                                <p className="text-gray-400">Tél: +216 77 302 424</p>
-                                <p className="text-gray-400">Fax: +216 77 302 425</p>
+                                <h4 className="font-bold text-white mb-1">{t('contact.info.phone.title')}</h4>
+                                <p className="text-gray-400">{t('contact.info.phone.tel')}</p>
+                                <p className="text-gray-400">{t('contact.info.phone.fax')}</p>
                             </div>
                         </div>
                          <div className="flex items-start gap-4">
@@ -90,7 +92,7 @@ const Contact = () => {
                                 <Mail size={24} />
                             </div>
                             <div>
-                                <h4 className="font-bold text-white mb-1">Email</h4>
+                                <h4 className="font-bold text-white mb-1">{t('contact.info.email.title')}</h4>
                                 <p className="text-gray-400">hydroquiptn@gmail.com</p>
                             </div>
                         </div>
@@ -98,19 +100,19 @@ const Contact = () => {
                 </div>
 
                 <div className="bg-[#121212] p-8 rounded-xl border border-white/5">
-                     <h3 className="text-xl font-bold mb-4">Horaires d'ouverture</h3>
+                     <h3 className="text-xl font-bold mb-4">{t('contact.info.hours.title')}</h3>
                      <ul className="space-y-3 text-gray-400">
                          <li className="flex justify-between">
-                             <span>Lundi - Vendredi</span>
-                             <span className="text-white">8h00 - 17h00</span>
+                             <span>{t('contact.info.hours.weekdays')}</span>
+                             <span className="text-white">{t('contact.info.hours.weekdaysTime')}</span>
                          </li>
                           <li className="flex justify-between">
-                             <span>Samedi</span>
-                             <span className="text-white">8h00 - 13h00</span>
+                             <span>{t('contact.info.hours.saturday')}</span>
+                             <span className="text-white">{t('contact.info.hours.saturdayTime')}</span>
                          </li>
                           <li className="flex justify-between">
-                             <span>Dimanche</span>
-                             <span className="text-primary font-bold">Fermé (Assistance 7/7)</span>
+                             <span>{t('contact.info.hours.sunday')}</span>
+                             <span className="text-primary font-bold">{t('contact.info.hours.sundayTime')}</span>
                          </li>
                      </ul>
                 </div>
@@ -123,57 +125,57 @@ const Contact = () => {
                 transition={{ delay: 0.4 }}
                 className="bg-[#121212] p-8 rounded-xl border border-white/5"
             >
-                <h3 className="text-2xl font-bold mb-6">Envoyer un message</h3>
+                <h3 className="text-2xl font-bold mb-6">{t('contact.form.title')}</h3>
                 {success && (
                     <div className="bg-green-500/10 border border-green-500/20 text-green-500 px-4 py-3 rounded-lg mb-6">
-                        Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.
+                        {t('contact.form.success')}
                     </div>
                 )}
                 {error && (
                     <div className="bg-red-500/10 border border-red-500/20 text-red-500 px-4 py-3 rounded-lg mb-6">
-                        Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer plus tard.
+                        {t('contact.form.error')}
                     </div>
                 )}
                 <form ref={form} className="space-y-6" onSubmit={sendEmail}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-400">Nom complet</label>
+                            <label className="text-sm font-medium text-gray-400">{t('contact.form.name')}</label>
                             <input 
                                 type="text" 
                                 name="name"
                                 required
                                 className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" 
-                                placeholder="Votre nom" 
+                                placeholder={t('contact.form.namePlaceholder')} 
                             />
                         </div>
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-400">Email</label>
+                            <label className="text-sm font-medium text-gray-400">{t('contact.form.email')}</label>
                             <input 
                                 type="email" 
                                 name="email"
                                 required
                                 className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" 
-                                placeholder="votre@email.com" 
+                                placeholder={t('contact.form.emailPlaceholder')} 
                             />
                         </div>
                     </div>
                      <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-400">Sujet</label>
+                        <label className="text-sm font-medium text-gray-400">{t('contact.form.subject')}</label>
                         <input 
                             type="text" 
                             name="title"
                             required
                             className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors" 
-                            placeholder="Demande de devis..." 
+                            placeholder={t('contact.form.subjectPlaceholder')} 
                         />
                     </div>
                     <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-400">Message</label>
+                        <label className="text-sm font-medium text-gray-400">{t('contact.form.message')}</label>
                         <textarea 
                             name="message"
                             required
                             className="w-full bg-[#0A0A0A] border border-white/10 rounded-lg px-4 py-3 text-white h-32 focus:outline-none focus:border-primary transition-colors resize-none" 
-                            placeholder="Votre message..." 
+                            placeholder={t('contact.form.messagePlaceholder')} 
                         />
                     </div>
                     <button 
@@ -181,8 +183,8 @@ const Contact = () => {
                         disabled={loading}
                         className="w-full btn btn-primary gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                        {loading ? 'Envoi en cours...' : 'Envoyer le message'}
-                        {!loading && <Send size={18} />}
+                        {loading ? t('contact.form.sending') : t('contact.form.submit')}
+                        {!loading && <Send size={18} className="rtl:rotate-180" />}
                     </button>
                 </form>
             </motion.div>

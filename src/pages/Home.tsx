@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Factory, ShieldCheck, Clock } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       {/* Hero Section */}
@@ -21,25 +24,25 @@ const Home = () => {
           >
               <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8 backdrop-blur-sm">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-sm text-gray-300 font-medium">Leader en équipements hydrauliques</span>
+                <span className="text-sm text-gray-300 font-medium">{t('home.badge')}</span>
               </div>
               
               <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight leading-tight">
-                L'Excellence <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Hydraulique</span> & <br />
-                <span className="text-primary">Pneumatique</span>
+                {t('home.hero.title1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">{t('home.hero.title2')}</span> & <br />
+                <span className="text-primary">{t('home.hero.title3')}</span>
               </h1>
               
               <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                Société d'Equipements Hydrauliques spécialisée dans la fabrication de pièces mécaniques et flexibles pour tous les secteurs industriels.
+                {t('home.hero.description')}
               </p>
               
               <div className="flex flex-col md:flex-row items-center justify-center gap-4">
                 <Link to="/services" className="btn btn-primary min-w-[180px] gap-2 group">
-                  Nos Produits
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  {t('home.hero.cta1')}
+                  <ArrowRight size={18} className="group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />
                 </Link>
                 <Link to="/contact" className="btn btn-outline min-w-[180px]">
-                  Contactez-nous
+                  {t('home.hero.cta2')}
                 </Link>
               </div>
           </motion.div>
@@ -52,18 +55,18 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <FeatureCard 
                     icon={<Factory size={32} />}
-                    title="Fabrication sur Mesure"
-                    description="Raccords, flexibles et pièces mécaniques adaptés à vos besoins spécifiques."
+                    title={t('home.features.custom.title')}
+                    description={t('home.features.custom.description')}
                 />
                  <FeatureCard 
                     icon={<ShieldCheck size={32} />}
-                    title="Qualité Garantie"
-                    description="Produits testés haute pression pour assurer la continuité de votre production."
+                    title={t('home.features.quality.title')}
+                    description={t('home.features.quality.description')}
                 />
                  <FeatureCard 
                     icon={<Clock size={32} />}
-                    title="Assistance 7j/7"
-                    description="Une équipe technique à votre écoute tous les jours pour une intervention rapide."
+                    title={t('home.features.support.title')}
+                    description={t('home.features.support.description')}
                 />
             </div>
         </div>
@@ -75,12 +78,12 @@ const Home = () => {
               <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0A0A0A] border border-white/10 rounded-2xl p-12 md:p-20 relative overflow-hidden group">
                     <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors duration-500" />
                     
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6 relative z-10">Prêt à optimiser vos équipements ?</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6 relative z-10">{t('home.cta.title')}</h2>
                     <p className="text-gray-400 max-w-xl mx-auto mb-8 relative z-10">
-                        Contactez-nous pour un devis gratuit ou pour une intervention sur site.
+                        {t('home.cta.description')}
                     </p>
                     <Link to="/contact" className="btn btn-primary relative z-10">
-                        Demander un Devis Gratuit
+                        {t('home.cta.button')}
                     </Link>
               </div>
           </div>

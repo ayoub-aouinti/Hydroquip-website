@@ -1,0 +1,151 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "home": {
+    "badge": "Leader in hydraulic equipment",
+    "hero": {
+      "title1": "Excellence in",
+      "title2": "Hydraulic",
+      "title3": "Pneumatic",
+      "description": "Hydraulic Equipment Company specializing in the manufacture of mechanical parts and hoses for all industrial sectors.",
+      "cta1": "Our Products",
+      "cta2": "Contact Us"
+    },
+    "features": {
+      "custom": {
+        "title": "Custom Manufacturing",
+        "description": "Fittings, hoses and mechanical parts adapted to your specific needs."
+      },
+      "quality": {
+        "title": "Guaranteed Quality",
+        "description": "High-pressure tested products to ensure the continuity of your production."
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "A technical team at your service every day for rapid intervention."
+      }
+    },
+    "cta": {
+      "title": "Ready to optimize your equipment?",
+      "description": "Contact us for a free quote or for an on-site intervention.",
+      "button": "Request a Free Quote"
+    }
+  },
+  "about": {
+    "badge": "Our Story",
+    "title": "About Hydroquip",
+    "description": "Your trusted partner in hydraulic and pneumatic solutions for years."
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Sectors & Products",
+    "description": "Our diversity and range of products will give you optimization for your choices that will be perfectly suited to your needs.",
+    "items": {
+      "automobile": {
+        "title": "Automotive",
+        "description": "Power steering pipes, polyamide pipes for fuel transport.",
+        "details": "Complete hydraulic solutions for the automotive industry including high-pressure hoses and specialized fittings."
+      },
+      "construction": {
+        "title": "Construction & Public Works",
+        "description": "Parts and hoses for construction equipment, public works and quarries.",
+        "details": "Robust equipment designed to withstand the extreme conditions of construction sites and quarries."
+      },
+      "drilling": {
+        "title": "Hydraulic Drilling",
+        "description": "High-pressure equipment for hydraulic drilling and boring.",
+        "details": "High-performance systems for drilling and boring applications requiring maximum reliability."
+      },
+      "industrial": {
+        "title": "Oil & Pharmaceutical Industry",
+        "description": "Solutions for oil, food (milk, olive oil) and pharmaceutical industries.",
+        "details": "Sanitary stainless steel components complying with the strictest industry standards."
+      },
+      "agricultural": {
+        "title": "Agricultural",
+        "description": "Hoses and fittings for agricultural machinery and irrigation systems.",
+        "details": "Hydraulic equipment adapted to tractors, harvesters and modern irrigation systems."
+      },
+      "custom": {
+        "title": "Custom Manufacturing",
+        "description": "Manufacturing of any mechanical part according to your models and specifications.",
+        "details": "Personalized manufacturing service with precision machining to meet your specific needs."
+      }
+    }
+  },
+  "contact": {
+    "badge": "Contact Us",
+    "title": "Let's Stay in Touch",
+    "description": "Our team is at your disposal to answer all your questions and quote requests.",
+    "info": {
+      "title": "Contact Information",
+      "address": {
+        "title": "Our Address",
+        "line1": "45, Russie Sahabi 2 Street",
+        "line2": "Kairouan, Tunisia"
+      },
+      "phone": {
+        "title": "Phone & Fax",
+        "tel": "Tel: +216 77 302 424",
+        "fax": "Fax: +216 77 302 425"
+      },
+      "email": {
+        "title": "Email"
+      },
+      "hours": {
+        "title": "Opening Hours",
+        "weekdays": "Monday - Friday",
+        "weekdaysTime": "8:00 AM - 5:00 PM",
+        "saturday": "Saturday",
+        "saturdayTime": "8:00 AM - 1:00 PM",
+        "sunday": "Sunday",
+        "sundayTime": "Closed (24/7 Support)"
+      }
+    },
+    "form": {
+      "title": "Send a Message",
+      "name": "Full Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "Quote request...",
+      "message": "Message",
+      "messagePlaceholder": "Your message...",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Your message has been sent successfully! We will respond to you as soon as possible.",
+      "error": "An error occurred while sending the message. Please try again later."
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "About",
+      "description": "Hydroquip is your trusted partner for all your hydraulic and pneumatic equipment needs."
+    },
+    "quickLinks": {
+      "title": "Quick Links"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "copyright": "All rights reserved."
+  },
+  "whatsapp": {
+    "title": "Hydroquip",
+    "status": "Online - Quick Response",
+    "welcome": "Hello! Welcome to",
+    "help": "How can we help you today?",
+    "quickActions": "Quick Actions",
+    "quote": "Request a quote",
+    "support": "Technical support",
+    "info": "General information",
+    "startChat": "Start Conversation",
+    "hours": "Available: Mon-Fri 8AM-5PM, Sat 8AM-1PM",
+    "assistance": "24/7 Support"
+  }
+}

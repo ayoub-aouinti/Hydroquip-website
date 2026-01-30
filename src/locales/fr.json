@@ -1,0 +1,151 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "home": {
+    "badge": "Leader en équipements hydrauliques",
+    "hero": {
+      "title1": "L'Excellence",
+      "title2": "Hydraulique",
+      "title3": "Pneumatique",
+      "description": "Société d'Equipements Hydrauliques spécialisée dans la fabrication de pièces mécaniques et flexibles pour tous les secteurs industriels.",
+      "cta1": "Nos Produits",
+      "cta2": "Contactez-nous"
+    },
+    "features": {
+      "custom": {
+        "title": "Fabrication sur Mesure",
+        "description": "Raccords, flexibles et pièces mécaniques adaptés à vos besoins spécifiques."
+      },
+      "quality": {
+        "title": "Qualité Garantie",
+        "description": "Produits testés haute pression pour assurer la continuité de votre production."
+      },
+      "support": {
+        "title": "Assistance 7j/7",
+        "description": "Une équipe technique à votre écoute tous les jours pour une intervention rapide."
+      }
+    },
+    "cta": {
+      "title": "Prêt à optimiser vos équipements ?",
+      "description": "Contactez-nous pour un devis gratuit ou pour une intervention sur site.",
+      "button": "Demander un Devis Gratuit"
+    }
+  },
+  "about": {
+    "badge": "Notre Histoire",
+    "title": "À Propos d'Hydroquip",
+    "description": "Votre partenaire de confiance en solutions hydrauliques et pneumatiques depuis des années."
+  },
+  "services": {
+    "badge": "Nos Services",
+    "title": "Secteurs & Produits",
+    "description": "Notre diversité et panoplie d'articles vous donneront une optimisation pour vos choix qui seront parfaitement adéquates à vos fins.",
+    "items": {
+      "automobile": {
+        "title": "Automobile",
+        "description": "Tuyauterie de direction assistées, tuyauteries en polyamide pour le transport de carburants.",
+        "details": "Solutions hydrauliques complètes pour l'industrie automobile incluant flexibles haute pression et raccords spécialisés."
+      },
+      "construction": {
+        "title": "Matériels & Travaux Publics",
+        "description": "Pièces et flexibles pour engins de chantier, travaux publics et carrières.",
+        "details": "Équipements robustes conçus pour résister aux conditions extrêmes des chantiers et carrières."
+      },
+      "drilling": {
+        "title": "Sondages Hydrauliques",
+        "description": "Equipements haute pression pour les sondages et forages hydrauliques.",
+        "details": "Systèmes haute performance pour applications de forage et sondage nécessitant une fiabilité maximale."
+      },
+      "industrial": {
+        "title": "Industrie Pétrolière & Pharma",
+        "description": "Solutions pour industries pétrolières, agroalimentaires (lait, huile d'olive) et pharmaceutiques.",
+        "details": "Composants en acier inoxydable sanitaire conformes aux normes les plus strictes de l'industrie."
+      },
+      "agricultural": {
+        "title": "Agricole",
+        "description": "Flexibles et raccords pour machines agricoles et systèmes d'irrigation.",
+        "details": "Équipements hydrauliques adaptés aux tracteurs, moissonneuses et systèmes d'irrigation modernes."
+      },
+      "custom": {
+        "title": "Fabrication sur Mesure",
+        "description": "Fabrication de toute pièce mécanique selon vos modèles et spécifications.",
+        "details": "Service de fabrication personnalisée avec usinage de précision pour répondre à vos besoins spécifiques."
+      }
+    }
+  },
+  "contact": {
+    "badge": "Contactez-nous",
+    "title": "Restons en Contact",
+    "description": "Notre équipe est à votre disposition pour répondre à toutes vos questions et demandes de devis.",
+    "info": {
+      "title": "Coordonnées",
+      "address": {
+        "title": "Notre Adresse",
+        "line1": "45, rue Russie Sahabi 2",
+        "line2": "Kairouan, Tunisie"
+      },
+      "phone": {
+        "title": "Téléphone & Fax",
+        "tel": "Tél: +216 77 302 424",
+        "fax": "Fax: +216 77 302 425"
+      },
+      "email": {
+        "title": "Email"
+      },
+      "hours": {
+        "title": "Horaires d'ouverture",
+        "weekdays": "Lundi - Vendredi",
+        "weekdaysTime": "8h00 - 17h00",
+        "saturday": "Samedi",
+        "saturdayTime": "8h00 - 13h00",
+        "sunday": "Dimanche",
+        "sundayTime": "Fermé (Assistance 7/7)"
+      }
+    },
+    "form": {
+      "title": "Envoyer un message",
+      "name": "Nom complet",
+      "namePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "subject": "Sujet",
+      "subjectPlaceholder": "Demande de devis...",
+      "message": "Message",
+      "messagePlaceholder": "Votre message...",
+      "submit": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "success": "Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.",
+      "error": "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer plus tard."
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "À Propos",
+      "description": "Hydroquip est votre partenaire de confiance pour tous vos besoins en équipements hydrauliques et pneumatiques."
+    },
+    "quickLinks": {
+      "title": "Liens Rapides"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "copyright": "Tous droits réservés."
+  },
+  "whatsapp": {
+    "title": "Hydroquip",
+    "status": "En ligne - Réponse rapide",
+    "welcome": "Bonjour ! Bienvenue chez",
+    "help": "Comment pouvons-nous vous aider aujourd'hui ?",
+    "quickActions": "Actions rapides",
+    "quote": "Demande de devis",
+    "support": "Support technique",
+    "info": "Informations générales",
+    "startChat": "Démarrer la conversation",
+    "hours": "Disponible: Lun-Ven 8h-17h, Sam 8h-13h",
+    "assistance": "Assistance 7/7"
+  }
+}

@@ -37,42 +37,32 @@ ul {
 }
 
 /* Utilities */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-all duration-300 active:scale-95;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90 shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)];
+  }
+
+  .btn-outline {
+    @apply border border-white/20 text-white hover:bg-white/5 hover:border-white/40;
+  }
+
+  /* RTL Utilities */
+  [dir="rtl"] .rtl\:rotate-180 {
+    transform: rotate(180deg);
+  }
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
-  transition: all 0.2s ease;
-}
-
-.btn-primary {
-  background-color: var(--primary);
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: var(--primary-hover);
-  transform: translateY(-1px);
-}
-
-.btn-outline {
-  background: transparent;
-  border: 1px solid var(--text-main);
-  color: var(--text-main);
-}
-
-.btn-outline:hover {
-  background: rgba(255, 255, 255, 0.1);
+/* Custom width classes for better control */
+.max-w-7xl {
+  max-width: 1280px;
 }
 
 .section-padding {

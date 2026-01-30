@@ -1,43 +1,45 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const Services = () => {
+  const { t } = useTranslation();
     
   const services = [
     {
       image: "/images/automobile.png",
-      title: "Automobile",
-      description: "Tuyauterie de direction assistées, tuyauteries en polyamide pour le transport de carburants.",
-      details: "Solutions hydrauliques complètes pour l'industrie automobile incluant flexibles haute pression et raccords spécialisés."
+      title: t('services.items.automobile.title'),
+      description: t('services.items.automobile.description'),
+      details: t('services.items.automobile.details')
     },
     {
       image: "/images/construction.png",
-      title: "Matériels & Travaux Publics",
-      description: "Pièces et flexibles pour engins de chantier, travaux publics et carrières.",
-      details: "Équipements robustes conçus pour résister aux conditions extrêmes des chantiers et carrières."
+      title: t('services.items.construction.title'),
+      description: t('services.items.construction.description'),
+      details: t('services.items.construction.details')
     },
     {
       image: "/images/drilling.png",
-      title: "Sondages Hydrauliques",
-      description: "Equipements haute pression pour les sondages et forages hydrauliques.",
-      details: "Systèmes haute performance pour applications de forage et sondage nécessitant une fiabilité maximale."
+      title: t('services.items.drilling.title'),
+      description: t('services.items.drilling.description'),
+      details: t('services.items.drilling.details')
     },
     {
       image: "/images/industrial.png",
-      title: "Industrie Pétrolière & Pharma",
-      description: "Solutions pour industries pétrolières, agroalimentaires (lait, huile d'olive) et pharmaceutiques.",
-      details: "Composants en acier inoxydable sanitaire conformes aux normes les plus strictes de l'industrie."
+      title: t('services.items.industrial.title'),
+      description: t('services.items.industrial.description'),
+      details: t('services.items.industrial.details')
     },
     {
        image: "/images/agricultural.png",
-       title: "Agricole", 
-       description: "Flexibles et raccords pour machines agricoles et systèmes d'irrigation.",
-       details: "Équipements hydrauliques adaptés aux tracteurs, moissonneuses et systèmes d'irrigation modernes."
+       title: t('services.items.agricultural.title'), 
+       description: t('services.items.agricultural.description'),
+       details: t('services.items.agricultural.details')
     },
     {
        image: "/images/custom.png",
-       title: "Fabrication sur Mesure",
-       description: "Fabrication de toute pièce mécanique selon vos modèles et spécifications.",
-       details: "Service de fabrication personnalisée avec usinage de précision pour répondre à vos besoins spécifiques."
+       title: t('services.items.custom.title'),
+       description: t('services.items.custom.description'),
+       details: t('services.items.custom.details')
     }
   ];
 
@@ -49,10 +51,10 @@ const Services = () => {
            animate={{ opacity: 1, y: 0 }}
            className="text-center mb-16"
         >
-          <span className="text-primary font-bold uppercase tracking-wider text-sm">Nos Services</span>
-          <h1 className="text-4xl md:text-5xl font-bold mt-2 mb-6">Secteurs & Produits</h1>
+          <span className="text-primary font-bold uppercase tracking-wider text-sm">{t('services.badge')}</span>
+          <h1 className="text-4xl md:text-5xl font-bold mt-2 mb-6">{t('services.title')}</h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Notre diversité et panoplie d'articles vous donneront une optimisation pour vos choix qui seront parfaitement adéquates à vos fins.
+            {t('services.description')}
           </p>
         </motion.div>
 

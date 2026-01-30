@@ -1,22 +1,25 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const WhatsAppWidget = () => {
+  const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const isRTL = i18n.language === 'ar';
   
   // WhatsApp number from Contact page: +216 77 302 424
   // Format for WhatsApp API: remove + and spaces
-  const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
+  const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '21677302424';
   
   const quickMessages = [
-    { id: 1, text: 'Demande de devis', icon: '💰' },
-    { id: 2, text: 'Support technique', icon: '🔧' },
-    { id: 3, text: 'Informations générales', icon: 'ℹ️' }
+    { id: 1, text: t('whatsapp.quote'), icon: '💰' },
+    { id: 2, text: t('whatsapp.support'), icon: '🔧' },
+    { id: 3, text: t('whatsapp.info'), icon: 'ℹ️' }
   ];
 
   const openWhatsApp = (message?: string) => {
-    const defaultMessage = message || 'Bonjour, je souhaite obtenir plus d\'informations sur vos services.';
+    const defaultMessage = message || t('whatsapp.help');
     const encodedMessage = encodeURIComponent(defaultMessage);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
@@ -30,7 +33,7 @@ const WhatsAppWidget = () => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1, type: 'spring', stiffness: 260, damping: 20 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 group"
+        className={`fixed bottom-6 ${isRTL ? 'left-6 flex-row-reverse' : 'right-6'} z-50 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 group`}
         aria-label="WhatsApp Chat"
       >
         <motion.div
@@ -54,7 +57,7 @@ const WhatsAppWidget = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-6 z-40 w-[90vw] max-w-[380px] bg-[#0A0A0A] border border-white/10 rounded-2xl shadow-2xl overflow-hidden"
+            className={`fixed bottom-24 ${isRTL ? 'left-6' : 'right-6'} z-40 w-[90vw] max-w-[380px] bg-[#0A0A0A] border border-white/10 rounded-2xl shadow-2xl overflow-hidden`}
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-[#25D366] to-[#20BA5A] p-4 text-white">
@@ -63,8 +66,8 @@ const WhatsAppWidget = () => {
                   <MessageCircle size={24} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg">Hydroquip</h3>
-                  <p className="text-sm text-white/90">En ligne - Réponse rapide</p>
+                  <h3 className="font-bold text-lg">{t('whatsapp.title')}</h3>
+                  <p className="text-sm text-white/90">{t('whatsapp.status')}</p>
                 </div>
               </div>
             </div>
@@ -73,32 +76,32 @@ const WhatsAppWidget = () => {
             <div className="p-6 space-y-4 max-h-[400px] overflow-y-auto">
               {/* Welcome Message */}
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-[#121212] p-4 rounded-lg rounded-tl-none border border-white/5"
+                className={`bg-[#121212] p-4 rounded-lg border border-white/5 ${isRTL ? 'rounded-tr-none' : 'rounded-tl-none'}`}
               >
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  👋 Bonjour ! Bienvenue chez <span className="text-primary font-semibold">Hydroquip</span>.
+                  👋 {t('whatsapp.welcome')} <span className="text-primary font-semibold">Hydroquip</span>.
                 </p>
                 <p className="text-gray-400 text-sm mt-2">
-                  Comment pouvons-nous vous aider aujourd'hui ?
+                  {t('whatsapp.help')}
                 </p>
               </motion.div>
 
               {/* Quick Action Buttons */}
               <div className="space-y-2">
-                <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Actions rapides</p>
+                <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">{t('whatsapp.quickActions')}</p>
                 {quickMessages.map((msg, index) => (
                   <motion.button
                     key={msg.id}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 + index * 0.1 }}
                     onClick={() => openWhatsApp(msg.text)}
-                    className="w-full bg-[#121212] hover:bg-[#1a1a1a] border border-white/10 hover:border-primary/50 p-3 rounded-lg text-left transition-all duration-200 group"
+                    className="w-full bg-[#121212] hover:bg-[#1a1a1a] border border-white/10 hover:border-primary/50 p-3 rounded-lg text-left transition-all duration-200 group rtl:text-right"
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 rtl:flex-row-reverse">
                       <span className="text-2xl">{msg.icon}</span>
                       <span className="text-gray-300 text-sm group-hover:text-white transition-colors">
                         {msg.text}
@@ -116,17 +119,17 @@ const WhatsAppWidget = () => {
                 onClick={() => openWhatsApp()}
                 className="w-full bg-gradient-to-r from-[#25D366] to-[#20BA5A] hover:from-[#20BA5A] hover:to-[#1DA851] text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
               >
-                <Send size={18} />
-                Démarrer la conversation
+                <Send size={18} className="rtl:rotate-180" />
+                {t('whatsapp.startChat')}
               </motion.button>
 
               {/* Footer Info */}
               <div className="text-center pt-2">
                 <p className="text-xs text-gray-500">
-                  Disponible: Lun-Ven 8h-17h, Sam 8h-13h
+                  {t('whatsapp.hours')}
                 </p>
                 <p className="text-xs text-gray-600 mt-1">
-                  Assistance 7/7
+                  {t('whatsapp.assistance')}
                 </p>
               </div>
             </div>
